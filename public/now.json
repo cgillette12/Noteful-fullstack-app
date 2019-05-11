@@ -1,0 +1,15 @@
+{
+    "version": 2,
+    "alias": "Codys-Noteful-app",
+    "name": "Noteful-app",
+    "routes": [
+        {
+          "src": "^/static/(.*)",
+          "dest": "/static/$1"
+        },
+        {
+          "src": ".*",
+          "dest": "/index.html"
+        }
+    ]
+  }
