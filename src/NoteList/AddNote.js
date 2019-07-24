@@ -10,9 +10,8 @@ export default class AddNote extends Component {
         const newNote = {
             title: e.target['note-name'].value,
             content: e.target['content'].value,
-            folder_id: +e.target['note-folder-id'].value,
+            folder_id: parseInt(e.target['note-folder-id'].value),
         }
-        console.log(newNote);
         fetch(api.notes,{
             method: 'POST',
             headers: {

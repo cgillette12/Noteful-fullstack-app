@@ -5,15 +5,14 @@ import FolderList from '../FolderList/FolderList'
 
 export default class FolderPage extends Component {
   render() {
-    console.log('FolderPage props', this.props)
     return (
         <div>
         <nav>
-          <FolderList folders = {this.props.folders}/>
+          <FolderList folder_id={this.props.folder_id} folders = {this.props.folders}/>
         </nav>
         <section>
           
-          <NoteList folderId={this.props.folderId} notes={this.props.notes}/>
+          <NoteList folder_id={this.props.folder_id} notes={this.props.notes}/>
         </section>
       </div>
     )

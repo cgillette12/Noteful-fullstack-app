@@ -27,7 +27,6 @@ export default class AddFolder extends Component {
       }
     }) 
     .then(data =>{
-      console.log(data)
       this.context.addFolder(data)
       this.context.history.push('/')
     })

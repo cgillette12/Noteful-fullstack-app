@@ -21,8 +21,6 @@ class ErrorPage extends Component {
                 </main>
             );
         }
-        // Otherwise, render the children
-        console.log('this is running')
         return this.props.children;
     }
 }

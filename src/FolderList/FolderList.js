@@ -6,6 +6,9 @@ export default class FolderList extends Component {
     static contextType = UserContent
   render() {
       let folders = this.context.folders || [];
+      if (this.props.folder_id) {
+        folders = [folders.find(folder => parseInt(this.props.folder_id) === folder.id)]
+      }
         folders = folders.map((item, index)=> {
           const {id , name} = item;
           return (<Folder
@@ -14,7 +17,6 @@ export default class FolderList extends Component {
           name= {name}
           />)
        })
-
     return (
         <div>
             {folders}

@@ -41,8 +41,6 @@ let folderData = fetch(api.folders, options)
   })
   .then(res => res.json())
   .then(data => {
-  //  console.log(data)
-
     this.setState({
       folders: data,
       error: null
@@ -63,8 +61,6 @@ let folderData = fetch(api.folders, options)
   })
   .then(res => res.json())
   .then(data => {
-  //  console.log(data)
-
     this.setState({
       notes: data,
       error: null
@@ -113,12 +109,14 @@ handleDeleteNote = noteId => {
           </h2>
         </header>
         <Route exact path="/" render={()=> <HomePage {...this.state} /> }/>
-        <Route path='/Folder/:folderId' render= {( routeProps ) =>  
-          <FolderPage folderId={routeProps.match.params.folderId} {...this.state} />} />
-        <Route path='/Note/:noteId' render= {( routeProps ) =>  
+        <Route exact path='/Folder/:folder_id' render={(routeProps) => 
+          <FolderPage folder_id={routeProps.match.params.folder_id} {...this.state} />} />
+        <Route exact path='/Folder' render= {(  ) =>  
+          <FolderPage  {...this.state} />} />
+        <Route exact path='/Note/:noteId' render= {( routeProps ) =>  
           <NotePage noteId={routeProps.match.params.noteId} {...this.state} />} />
-        <Route path='/addNote' render= { () => <AddNote />}/>
-        <Route path='/addFolder' render= { () => <AddFolder/>}/>
+        <Route exact path='/addNote' render= { () => <AddNote />}/>
+        <Route exact path='/addFolder' render= { () => <AddFolder/>}/>
       </div>
           </ErrorPage>
           </UserContent.Provider>

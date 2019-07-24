@@ -6,21 +6,20 @@ import { Link } from 'react-router-dom'
 export default class NoteList extends Component {
   static contextType = UserContent
   render() {
-     console.log(this.props.folderId);
      let notes = this.context.notes || [];
 
-     if (this.props.folderId) {
-        notes = notes.filter(note => note.folderId === this.props.folderId)
+     if (this.props.folder_id) {
+        notes = notes.filter(note => note.folder_id === this.props.folder_id)
      }
 
      const noteData = notes.map((item, index)=> {
-          const {id , name, modified, folderId, content} = item;
+          const {id , name, modified, folder_id, content} = item;
           return (<Note
           key={index}
           id ={id}
           name= {name}
           modified={modified}
-          folderId={folderId}
+          folder_id={folder_id}
           content={content}
           />)
       })
