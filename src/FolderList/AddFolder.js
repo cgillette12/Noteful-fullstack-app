@@ -1,7 +1,7 @@
 import React, { Component } from 'react'
 import UserContent from '../ApiContent'
 import { Link } from 'react-router-dom'
-import { api } from '../config'
+import config from '../config'
 
 export default class AddFolder extends Component {
   static contextType = UserContent
@@ -12,7 +12,7 @@ export default class AddFolder extends Component {
       name: e.target['folder-name'].value,
       
     }
-    fetch(api.folders,{
+    fetch(`${config.API_ENDPOINT}api/folder`,{
       method: 'POST',
       headers: {
         'content-type': 'application/json'

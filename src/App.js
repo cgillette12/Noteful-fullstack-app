@@ -12,7 +12,7 @@ import HomePage from './Pages/HomePage'
 import FolderPage from './Pages/FolderPage';
 import NotePage from './Pages/NotePage';
 import ErrorPage from './Pages/ErrorPage'
-import {api} from './config'
+import config from './config'
 
 
 
@@ -32,7 +32,7 @@ const options = {
     "Content-Type": "application/json"
   }
 };
-let folderData = fetch(api.folders, options)
+  let folderData = fetch(`${config.API_ENDPOINT}api/folder`, options)
   .then(res => {
     if(!res.ok) {
       throw new Error('Something went wrong, please try again later.');
@@ -52,7 +52,7 @@ let folderData = fetch(api.folders, options)
     });
   });
 
-  let noteData = fetch(api.notes, options)
+  let noteData = fetch(`${config.API_ENDPOINT}api/notes`, options)
   .then(res => {
     if(!res.ok) {
       throw new Error('Something went wrong, please try again later.');

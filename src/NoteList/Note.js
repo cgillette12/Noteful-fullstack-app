@@ -1,7 +1,7 @@
 import React, { Component } from 'react'
 import { Link } from 'react-router-dom'
 import UserContent from '../ApiContent'
-import { api } from '../config'
+import config from '../config'
 
 export default class Note extends Component {
   
@@ -11,7 +11,7 @@ export default class Note extends Component {
         e.preventDefault()
         const noteId = this.props.id
        
-        fetch(`${api.notes}/${noteId}`,{
+      fetch(`${config.API_ENDPOINT}api/notes/${noteId}`,{
               method: 'DELETE',
               headers: {
                   'content-type': 'application/json'

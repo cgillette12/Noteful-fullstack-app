@@ -1,4 +1,5 @@
-export const api = {
-    notes:'http://localhost:8000/api/notes',
-    folders:'http://localhost:8000/api/folder'
+
+export default {
+    API_ENDPOINT: `https://warm-retreat-49065.herokuapp.com/`,
+    API_KEY: 'Notes',
 }

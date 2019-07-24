@@ -1,7 +1,7 @@
 import React, { Component } from 'react'
 import UserContent from '../ApiContent'
 import { Link } from 'react-router-dom'
-import { api } from '../config'
+import config from '../config'
 
 export default class AddNote extends Component {
     static contextType = UserContent
@@ -12,7 +12,7 @@ export default class AddNote extends Component {
             content: e.target['content'].value,
             folder_id: parseInt(e.target['note-folder-id'].value),
         }
-        fetch(api.notes,{
+        fetch(`${config.API_ENDPOINT}api/notes`,{
             method: 'POST',
             headers: {
                    'content-type': 'application/json'
